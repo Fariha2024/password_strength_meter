@@ -180,7 +180,6 @@ else:
 # Section 4: Screenshots
 st.header("📸 Screenshots")
 st.markdown("Here are some screenshots of the app in action:")
-import os
 import streamlit as st
 
 # Use raw strings or double backslashes
