@@ -165,11 +165,13 @@ st.code(project_structure, language="plaintext")
 # Section 3: Flowchart
 st.header("📊 Flowchart")
 st.markdown("Here’s the workflow of the project:")
+import os
+import streamlit as st
 
-# Corrected file path
-Visual= r"C:\Users\muham\Documents\passwordstrengthmeter\visual.jpg"
+# Corrected file path (no extra quotes)
+Visual = r"C:\Users\muham\Documents\passwordstrengthmeter\image\visual_4b7c3f5e-c3f9-4c03-a62a-2e7b6e457359.jpg"  # Removed space in filename
+
 # Check if file exists before displaying
-
 if os.path.exists(Visual):
     st.image(Visual, caption="Password Strength Meter Workflow", use_column_width=True)
 else:
@@ -178,13 +180,19 @@ else:
 # Section 4: Screenshots
 st.header("📸 Screenshots")
 st.markdown("Here are some screenshots of the app in action:")
+import os
+import streamlit as st
 
-# Add screenshots (use raw strings to avoid escape sequence issues)
-screenshot_1 = r"C:\Users\muham\Documents\passwordstrengthmeter\whatsApp_image2025-03-06at14.08.49_f1bd9fb2.jpg"
-screenshot_2 = r"C:\Users\muham\Documents\passwordstrengthmeter\flow_chart 717aa7c8-2b90-48d2-ba6d-bf00bcfe17b2.jpg"
+# Use raw strings or double backslashes
+screenshot_1 = r"C:\Users\muham\Documents\passwordstrengthmeter\image\whatsApp_image2025-03-06at14.08.49_f1bd9fb2.jpg"
+screenshot_2 = r"C:\Users\muham\Documents\passwordstrengthmeter\image\flow_chart_717aa7c8-2b90-48d2-ba6d-bf00bcfe17b2.jpg"  # Renamed file
 
-# Display images
-st.image([screenshot_1, screenshot_2], caption=["Screenshot 1", "Screenshot 2"], width=400)
+# Check if files exist before displaying
+if os.path.exists(screenshot_1) and os.path.exists(screenshot_2):
+    st.image([screenshot_1, screenshot_2], caption=["Screenshot 1", "Screenshot 2"], width=400)
+else:
+    st.error("⚠️ One or both image files were not found. Please check the file paths.")
+
 # Section 5: Contributing
 st.header("🤝 Contributing")
 st.markdown("""

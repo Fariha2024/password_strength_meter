@@ -1,5 +1,6 @@
 import bcrypt
 
+
 def hash_password(password):
     """
     Hash and salt the password using bcrypt.
