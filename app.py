@@ -161,37 +161,45 @@ PasswordStrengthMeter/
 └── README.md                         # Project documentation
 """
 st.code(project_structure, language="plaintext")
-
 # Section 3: Flowchart
+
+
+
 st.header("📊 Flowchart")
 st.markdown("Here’s the workflow of the project:")
 import os
 import streamlit as st
+import requests
+from PIL import Image
+from io import BytesIO
+# Define image URLs
+Visual = "https://raw.githubusercontent.com/Fariha2024/password_strength_meter/main/image/visual_4b7c3f5e-c3f9-4c03-a62a-2e7b6e457359.jpg"
+screenshot_1 = "https://raw.githubusercontent.com/Fariha2024/password_strength_meter/main/image/whatsApp_image2025-03-06at14.08.49_f1bd9fb2.jpg"
+screenshot_2 = "https://raw.githubusercontent.com/Fariha2024/password_strength_meter/main/image/flow_chart_717aa7c8-2b90-48d2-ba6d-bf00bcfe17b2.jpg"
 
-# Corrected file path (no extra quotes)
-Visual = "images/visual_4b7c3f5e-c3f9-4c03-a62a-2e7b6e457359.jpg"
+# Function to load an image from a URL
+def load_image_from_url(url):
+    response = requests.get(url)
+    if response.status_code == 200:
+        return Image.open(BytesIO(response.content))
+    else:
+        st.error(f"Failed to load image from URL: {url}")
+        return None
 
-# Check if file exists before displaying
-if os.path.exists(Visual):
-    st.image(Visual, caption="Password Strength Meter Workflow", use_column_width=True)
-else:
-    st.error("⚠️ Image file not found. Please check the file path.")
+# Load and display the flowchart image
+visual_image = load_image_from_url(Visual)
+if visual_image:
+    st.image(visual_image, caption="Password Strength Meter Workflow", use_column_width=True)
 
 # Section 4: Screenshots
 st.header("📸 Screenshots")
 st.markdown("Here are some screenshots of the app in action:")
-import streamlit as st
 
-# Use raw strings or double backslashes
-screenshot_1 = "images/whatsApp_image2025-03-06at14.08.49_f1bd9fb2.jpg"
-screenshot_2 = "images/flow_chart_717aa7c8-2b90-48d2-ba6d-bf00bcfe17b2.jpg"
-
-# Check if files exist before displaying
-if os.path.exists(screenshot_1) and os.path.exists(screenshot_2):
-    st.image([screenshot_1, screenshot_2], caption=["Screenshot 1", "Screenshot 2"], width=400)
-else:
-    st.error("⚠️ One or both image files were not found. Please check the file paths.")
-
+# Load and display the screenshot images
+screenshot_1_image = load_image_from_url(screenshot_1)
+screenshot_2_image = load_image_from_url(screenshot_2)
+if screenshot_1_image and screenshot_2_image:
+    st.image([screenshot_1_image, screenshot_2_image], caption=["Screenshot 1", "Screenshot 2"], width=400)
 # Section 5: Contributing
 st.header("🤝 Contributing")
 st.markdown("""
