@@ -4,9 +4,11 @@ bcrypt==4.3.0
 blinker==1.9.0
 cachetools==5.5.2
 certifi==2025.1.31
+cffi==1.17.1
 charset-normalizer==3.4.1
 click==8.1.8
 colorama==0.4.6
+cryptography==44.0.2
 gitdb==4.0.12
 GitPython==3.1.44
 idna==3.10
@@ -21,6 +23,7 @@ pandas==2.2.3
 pillow==11.1.0
 protobuf==5.29.3
 pyarrow==19.0.1
+pycparser==2.22
 pydeck==0.9.1
 python-dateutil==2.9.0.post0
 pytz==2025.1
